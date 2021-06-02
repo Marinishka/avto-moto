@@ -1,0 +1,35 @@
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  font-family: "OpenSans-Bold";
+
+  font-display: swap;
+  src: url("../fonts/OpenSans-Bold.woff2") format("woff2") , url("../fonts/OpenSans-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "OpenSans-Regular";
+
+  font-display: swap;
+  src: url("../fonts/OpenSans-Regular.woff2") format("woff2") , url("../fonts/OpenSans-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 600;
+  font-family: "OpenSans-SemiBold";
+
+  font-display: swap;
+  src: url("../fonts/OpenSans-SemiBold.woff") format("woff2") , url("../fonts/OpenSans-SemiBold.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Roboto-Regular";
+
+  font-display: swap;
+  src: url("../fonts/Roboto-Regular.woff2") format("woff2") , url("../fonts/Roboto-Regular.woff") format("woff");
+}
