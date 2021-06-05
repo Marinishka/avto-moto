@@ -9,18 +9,18 @@ const Header = () => {
         <img className="header__img" src="img/logo.png" width="134" height="55" alt="Логотип Avto Moto"></img>
       </Link>
       <nav className="header__nav">
-        <ul className="header__list header-list">
-          <li className="header-list__item">
-            <a className="header-list__link" href="/">Автомобили</a>
+        <ul className="header__list">
+          <li className="header__item">
+            <a className="header__link" href="/">Автомобили</a>
           </li>
-          <li className="header-list__item">
-            <a className="header-list__link" href="/">Контакты</a>
+          <li className="header__item">
+            <a className="header__link" href="/">Контакты</a>
           </li>
-          <li className="header-list__item">
-            <a className="header-list__link" href="/">Услуги</a>
+          <li className="header__item">
+            <a className="header__link" href="/">Услуги</a>
           </li>
-          <li className="header-list__item">
-            <a className="header-list__link" href="/">Вакансии</a>
+          <li className="header__item">
+            <a className="header__link" href="/">Вакансии</a>
           </li>
         </ul>
       </nav>
