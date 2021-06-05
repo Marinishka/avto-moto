@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
 
 const getImgsList = (activeImg, imgs) => {
@@ -9,13 +9,19 @@ const getImgsList = (activeImg, imgs) => {
 };
 
 const Slider = () => {
-  // const [activeImg, setActiveImg] = useState(0);
-  // setActiveImg(0);
-  const activeImg = 0;
+  const [activeImg, setActiveImg] = useState(0);
 
   const product = useSelector((state) => state.DATA.product);
 
   const {pictures, isNew} = product;
+
+  const onNextImgClick = () => {
+    setActiveImg(activeImg + 1);
+  };
+
+  const onPreviousImgClick = () => {
+    setActiveImg(activeImg - 1);
+  };
 
   return <div className="slider">
     <div className="slider__active-img">
@@ -23,16 +29,16 @@ const Slider = () => {
       <img src={pictures[activeImg]} width="600" height="375" alt={`Изображение продукта ${activeImg}`}></img>
     </div>
     <div className="slider__bar">
-      <button className="slider__btn slider__btn--up">
+      <button className="slider__btn slider__btn--up" onClick={onPreviousImgClick} disabled={activeImg === 0 ? true : false}>
         <svg className={`slider__icon ${activeImg === 0 ? `slider__icon--disable` : ``}`} width="20" height="13" viewBox="0 0 20 13">
-          <path d="M1.00427 6.17188L6.91841 0.368597M1.00427 6.17188L6.69294 11.9692M1.00427 6.17188L19.9813 6.35128" stroke="#D7D9DF"/>
+          <path d="M1.00427 6.17188L6.91841 0.368597M1.00427 6.17188L6.69294 11.9692M1.00427 6.17188L19.9813 6.35128" stroke="#48494D"/>
         </svg>
       </button>
       <ul className="slider__img-list">
         {getImgsList(activeImg, pictures)}
       </ul>
-      <button className="slider__btn slider__btn--down">
-        <svg className="slider__icon" width="20" height="13" viewBox="0 0 20 13">
+      <button className="slider__btn slider__btn--down" onClick={onNextImgClick} disabled={activeImg === pictures.length - 1 ? true : false}>
+        <svg className={`slider__icon ${activeImg === pictures.length - 1 ? `slider__icon--disable` : ``}`} width="20" height="13" viewBox="0 0 20 13">
           <path d="M18.9873 6.17188L13.0747 0.368597M18.9873 6.17188L13.3001 11.9692M18.9873 6.17188L0.0150977 6.35128" stroke="#48494D"/>
         </svg>
       </button>
