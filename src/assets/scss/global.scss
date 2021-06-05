@@ -1,0 +1,75 @@
+body {
+  position: relative;
+
+  margin: 0;
+  padding: 0;
+
+  text-decoration: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+
+  clip: rect(0 0 0 0);
+}
+
+.container {
+  max-width: 1205px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.font-regular {
+  font-family: "OpenSans-Regular", "Arial", sans-serif;
+}
+
+.font-semi-bold {
+  font-family: "OpenSans-SemiBold", "Arial", sans-serif;
+}
+
+.font-bold {
+  font-family: "OpenSans-Bold", "Arial", sans-serif;
+}
+
+.font-main-text {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.font-double {
+  font-family: "Roboto", "Arial", sans-serif;
+}
+
+.btn:hover,
+.btn:focus {
+  color: $text-color-contrast;
+
+  background-color: $hover-color-bg;
+  border-color: $emphasis-color;
+}
+
+.btn:active {
+  background-color: darken($hover-color-bg, 10%);
+}
+
