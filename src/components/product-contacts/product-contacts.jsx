@@ -1,9 +1,10 @@
 import React from 'react';
+import {YMaps, Map, Placemark} from 'react-yandex-maps';
 
 const ProductContacts = () => {
   return <article className="contacts">
     <h2 className="visually-hidden">Наши контакты</h2>
-    <dl>
+    <dl className="contacts__list">
       <div className="contacts__item">
         <dt className="contacts__title">Адрес</dt>
         <dd className="contacts__text">
@@ -29,6 +30,13 @@ const ProductContacts = () => {
         </dd>
       </div>
     </dl>
+    <div className="contacts__map">
+      <YMaps>
+        <Map defaultState={{bounds: [[59.970939, 30.311348], [59.964614, 30.334301]]}} width="431px" height="271px">
+          <Placemark geometry={[59.968137, 30.316272]} options={{iconLayout: `default#image`, iconImageHref: `img/mark.png`, iconImageSize: [32, 40]}}></Placemark>
+        </Map>
+      </YMaps>
+    </div>
   </article>;
 };
 

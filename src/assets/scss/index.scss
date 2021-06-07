@@ -507,12 +507,22 @@
 @extend .font-regular;
 }
 
+.contacts {
+  display: flex;
+  flex-direction: row;
+}
+
+.contacts__list {
+  margin-top: 15px;
+  margin-right: 103px;
+}
+
 .contacts__item {
-  margin-bottom: 35px;
+  margin-bottom: 27px;
 }
 
 .contacts__title {
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 
   color: $text-color-third;
 
@@ -542,6 +552,16 @@
 .contacts__link {
   color: $text-color-third;
   text-decoration: none;
+}
+
+.contacts__map {
+  width: 431px;
+  height: 271px;
+  margin-top: 20px;
+
+  background-image: url("./../img/map.jpg");
+  background-repeat: no-repeat;
+  background-size: 431px 271px;
 }
 
 .footer {

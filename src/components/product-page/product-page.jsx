@@ -6,7 +6,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {Info} from '../../const';
 import Slider from '../slider/slider';
 
-const getInfoitems = (info) => {
+const getInfoItems = (info) => {
   let items = [];
   for (const key in info) {
     if (Object.prototype.hasOwnProperty.call(info, key)) {
@@ -39,7 +39,7 @@ const ProductPage = () => {
       <section className="info">
         <h1 className="info__title">{title}</h1>
         <ul className="info__list">
-          {getInfoitems(info)}
+          {getInfoItems(info)}
         </ul>
         <div className="info__pricing">
           <span className="info__price info__price--new">{price.new} &#x20bd;</span>
