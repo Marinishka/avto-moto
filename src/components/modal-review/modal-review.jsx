@@ -1,4 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import {KeyCode} from '../../const';
+import {addReview, changeVisibilityModal} from '../../store/action';
 
 const getStars = (numStarOn) => {
   let stars = [];
@@ -16,12 +19,36 @@ const getStars = (numStarOn) => {
 };
 
 const ModalReview = () => {
-  const [isClose, setClose] = useState(true);
   const [starOn, setStarOn] = useState(0);
   const inputName = useRef(null);
+  const inputComment = useRef(null);
+
+  const [name, setName] = useState(``);
+  const [dignity, setDignity] = useState(``);
+  const [disadvantages, setDisadvantages] = useState(``);
+  const [comment, setComment] = useState(``);
+
+  const dispatch = useDispatch();
+
+  const onEscPress = (evt) => {
+
+    if (evt.keyCode === KeyCode.ESCAPE) {
+      dispatch(changeVisibilityModal(false));
+    }
+  };
+
+  const onOverlayClick = (evt) => {
+    if (evt.target.classList.contains(`add-review`)) {
+      dispatch(changeVisibilityModal(false));
+    }
+  };
 
   useEffect(() => {
     inputName.current.focus();
+    document.addEventListener(`keydown`, onEscPress);
+    return () => {
+      document.removeEventListener(`keydown`, onEscPress);
+    };
   }, []);
 
   const onRatingClick = (evt) => {
@@ -29,26 +56,47 @@ const ModalReview = () => {
   };
 
   const onCloseClick = () => {
-    setClose(true);
+    dispatch(changeVisibilityModal(false));
   };
 
-  return <section className={`add-review ${isClose ? `add-review--close` : ``}`}>
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+    inputName.current.classList.remove(`add-review__input--warning`);
+    inputComment.current.classList.remove(`add-review__textarea--warning`);
+    if (name === `` && comment === ``) {
+      inputName.current.classList.add(`add-review__input--warning`);
+      inputComment.current.classList.add(`add-review__textarea--warning`);
+      return;
+    }
+    if (name === ``) {
+      inputName.current.classList.add(`add-review__input--warning`);
+      return;
+    }
+    if (comment === ``) {
+      inputComment.current.classList.add(`add-review__textarea--warning`);
+      return;
+    }
+    dispatch(addReview({"user": name, "dignity": dignity, "disadvantages": disadvantages, "comment": comment, "rating": starOn}));
+    dispatch(changeVisibilityModal(false));
+  };
+
+  return <section className="add-review" onClick={onOverlayClick}>
     <div className="add-review__container">
       <h2 className="add-review__title">Оставить отзыв</h2>
       <button className="add-review__close" aria-label="Закрыть окно" onClick={onCloseClick}>
         <span className="visually-hidden">Закрыть окно</span>
       </button>
-      <form className="add-review__form">
+      <form className="add-review__form" onSubmit={onSubmit} noValidate>
         <div className="add-review__column">
           <span className="add-review__warning">Пожалуйста, заполните поле</span>
           <label className="add-review__label add-review__label--required"><span className="visually-hidden">Введите имя</span>
-            <input className="add-review__input" placeholder="Имя" name="name" type="text" ref={inputName} aria-label="Имя" required></input>
+            <input className="add-review__input" placeholder="Имя" name="name" type="text" ref={inputName} aria-label="Имя" onChange={({target}) => setName(target.value)} required></input>
           </label>
           <label className="add-review__label"><span className="visually-hidden">Введите достоинства товара</span>
-            <input className="add-review__input" placeholder="Достоинства" name="dignity" type="text" aria-label="Достоинства"></input>
+            <input className="add-review__input" placeholder="Достоинства" name="dignity" type="text" aria-label="Достоинства" onChange={({target}) => setDignity(target.value)}></input>
           </label>
           <label className="add-review__label"><span className="visually-hidden">Введите недостатки товара</span>
-            <input className="add-review__input" placeholder="Недостатки" name="disadvantages" type="text" aria-label="Недостатки"></input>
+            <input className="add-review__input" placeholder="Недостатки" name="disadvantages" type="text" aria-label="Недостатки" onChange={({target}) => setDisadvantages(target.value)}></input>
           </label>
         </div>
         <div className="add-review__column">
@@ -59,10 +107,10 @@ const ModalReview = () => {
             </div>
           </fieldset>
           <label className="add-review__label add-review__label--required"><span className="visually-hidden">Ваш комментарий</span>
-            <textarea className="add-review__textarea" placeholder="Комментарий" name="comment" type="text" aria-label="Комментарий" required></textarea>
+            <textarea className="add-review__textarea" placeholder="Комментарий" name="comment" type="text" aria-label="Комментарий" onChange={({target}) => setComment(target.value)} ref={inputComment} required></textarea>
           </label>
         </div>
-        <button className="add-review__btn" type="submit" aria-label="Остаить отзыв">Оставить отзыв</button>
+        <button className="add-review__btn" type="submit" aria-label="Оставить отзыв">Оставить отзыв</button>
       </form>
     </div>
   </section>;

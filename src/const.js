@@ -4,7 +4,7 @@ export const Routes = {
 };
 
 export const KeyCode = {
-  ESCAPE: `Escape`
+  ESCAPE: 27
 };
 
 export const TabsTitles = {
