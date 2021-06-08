@@ -7,7 +7,7 @@ const getStars = (numStarOn) => {
   let stars = [];
   for (let i = 1; i <= 5; i++) {
     stars.push(
-        <label className="add-review__star" key={`star-${i}`}>
+        <label tabIndex="0" className="add-review__star" key={`star-${i}`}>
           <input className="visually-hidden add-review__radio" type="radio" defaultChecked={numStarOn === i ? true : false} value={i}></input>
           <svg className={`add-review__icon-star ${i <= numStarOn ? `add-review__icon-star--on` : ``}`} width="27" height="25" viewBox="0 0 27 25">
             <path d="M13.5688 0L16.6151 9.52282H26.4734L18.4979 15.4082L21.5443 24.9311L13.5688 19.0456L5.59324 24.9311L8.63961 15.4082L0.664102 9.52282H10.5224L13.5688 0Z" fill="#BDBEC2" fillOpacity="0.7"/>
@@ -31,15 +31,16 @@ const ModalReview = () => {
   const dispatch = useDispatch();
 
   const onEscPress = (evt) => {
-
     if (evt.keyCode === KeyCode.ESCAPE) {
       dispatch(changeVisibilityModal(false));
+      document.body.classList.remove(`overflow--hidden`);
     }
   };
 
   const onOverlayClick = (evt) => {
     if (evt.target.classList.contains(`add-review`)) {
       dispatch(changeVisibilityModal(false));
+      document.body.classList.remove(`overflow--hidden`);
     }
   };
 
@@ -48,6 +49,7 @@ const ModalReview = () => {
     document.addEventListener(`keydown`, onEscPress);
     return () => {
       document.removeEventListener(`keydown`, onEscPress);
+      document.body.classList.remove(`overflow--hidden`);
     };
   }, []);
 
@@ -57,6 +59,7 @@ const ModalReview = () => {
 
   const onCloseClick = () => {
     dispatch(changeVisibilityModal(false));
+    document.body.classList.remove(`overflow--hidden`);
   };
 
   const onSubmit = (evt) => {
@@ -78,6 +81,7 @@ const ModalReview = () => {
     }
     dispatch(addReview({"user": name, "dignity": dignity, "disadvantages": disadvantages, "comment": comment, "rating": starOn}));
     dispatch(changeVisibilityModal(false));
+    document.body.classList.remove(`overflow--hidden`);
   };
 
   return <section className="add-review" onClick={onOverlayClick}>

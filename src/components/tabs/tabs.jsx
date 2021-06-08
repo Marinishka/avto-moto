@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TabsTitles} from '../../const';
+import {KeyCode, TabsTitles} from '../../const';
 import ProductContacts from '../product-contacts/product-contacts';
 import ProductReviews from '../product-reviews/product-reviews';
 import ProductSpecifications from '../product-specifications/product-specifications';
@@ -34,8 +34,14 @@ const Tabs = () => {
     setActiveTab(newActiveTab);
   };
 
+  const onEnterPress = (evt) => {
+    if (evt.keyCode === KeyCode.ENTER) {
+      setActiveTab(evt.target.dataset.tab);
+    }
+  };
+
   return <div className="tabs">
-    <ul className="tabs__list" onClick={(evt) => handleActiveTabChange(evt.target.dataset.tab)}>
+    <ul className="tabs__list" onClick={(evt) => handleActiveTabChange(evt.target.dataset.tab)} onKeyDown={(evt) => onEnterPress(evt)}>
       {getTabItems(activeTab)}
     </ul>
     {getActiveElement(activeTab)}

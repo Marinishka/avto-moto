@@ -7,7 +7,7 @@ const getStars = (rating) => {
   for (let i = 1; i <= 5; i++) {
     stars.push(<div className="review__icon" key={`star-${i}`}>
       <svg className={`review__icon-star ${i <= rating ? `review__icon-star--active` : ``}`} width="17" height="16" viewBox="0 0 17 16">
-        <path d="M8.63145 0L10.5103 5.87336L16.5906 5.87336L11.6716 9.50329L13.5505 15.3766L8.63145 11.7467L3.71242 15.3766L5.59132 9.50329L0.672291 5.87336L6.75254 5.87336L8.63145 0Z" fill="#BDBEC2" fillOpacity="0.7"/>
+        <path d="M8.63145 0L10.5103 5.87336L16.5906 5.87336L11.6716 9.50329L13.5505 15.3766L8.63145 11.7467L3.71242 15.3766L5.59132 9.50329L0.672291 5.87336L6.75254 5.87336L8.63145 0Z" fill="#BDBEC2"/>
       </svg>
     </div>);
   }

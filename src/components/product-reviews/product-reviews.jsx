@@ -14,13 +14,15 @@ const ProductReviews = () => {
 
   const {reviews} = product;
 
-  const openModal = () => {
+  const openModal = (evt) => {
+    evt.preventDefault();
     dispatch(changeVisibilityModal(true));
+    document.body.classList.add(`overflow--hidden`);
   };
 
   return <section className="reviews">
     <h2 className="visually-hidden">Отзывы</h2>
-    <button className="reviews__btn" onClick={openModal}>Оставить отзыв</button>
+    <a href="#" className="reviews__btn" onClick={openModal}>Оставить отзыв</a>
     {getReviewsList(reviews)}
   </section>;
 };

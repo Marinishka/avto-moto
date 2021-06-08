@@ -371,6 +371,7 @@
   position: absolute;
   top: 20px;
   right: 0;
+  z-index: 1;
 
   padding: 16px 18px;
 
@@ -378,6 +379,7 @@
   line-height: 19px;
   color: $emphasis-color;
   text-transform: uppercase;
+  text-decoration: none;
   letter-spacing: 0.12em;
 
   background-color: transparent;
@@ -608,7 +610,7 @@
 }
 
 .footer__link:hover,
-.footer__link:active {
+.footer__link:focus {
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
