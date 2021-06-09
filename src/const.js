@@ -14,6 +14,12 @@ export const TabsTitles = {
   CONTACTS: `Контакты`
 };
 
+export const ReviewItemTitles = {
+  "dignity": `Достоинства`,
+  "disadvantages": `Недостатки`,
+  "comment": `Комментарий`
+};
+
 export const SpecificationItems = {
   "transmission": `Трансмиссия`,
   "power": `Мощность двигателя, л.с.`,

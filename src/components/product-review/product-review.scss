@@ -1,0 +1,134 @@
+.review {
+  padding-bottom: 20px;
+
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+}
+
+.review:not(:last-child) {
+  margin-bottom: 19px;
+}
+
+.review__user-name {
+  display: inline-block;
+  margin-bottom: 12px;
+
+  font-size: 20px;
+  line-height: 27px;
+  color: $text-main-color;
+
+@extend .font-semi-bold;
+}
+
+.review__content {
+  margin: 0 0 18px 0;
+}
+
+.review__item {
+  margin-bottom: 12px;
+}
+
+.review__item:not(.review__item--comment) {
+  padding-left: 19px;
+}
+
+.review__title {
+  position: relative;
+
+  margin-bottom: 2px;
+
+@extend .font-semi-bold;
+}
+
+.review__title--dignity::before {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: -19px;
+
+  width: 7px;
+  height: 1px;
+
+  background-color: $emphasis-color;
+}
+
+.review__title--dignity::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: -16px;
+
+  width: 1px;
+  height: 7px;
+
+  background-color: $emphasis-color;
+}
+
+.review__title--disadvantages::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: -20px;
+
+  width: 7px;
+  height: 1px;
+
+  background-color: $emphasis-color-double;
+}
+
+.review__text {
+  margin: 0;
+
+@extend .font-regular;
+}
+
+.review__stars {
+  display: inline-block;
+  margin-right: 22px;
+}
+
+.review__icon {
+  display: inline-block;
+}
+
+.review__icon:not(:last-child) {
+  margin-right: 4px;
+}
+
+.review__icon-star--active path {
+  fill: $emphasis-color;
+}
+
+.review__rating {
+  margin-bottom: 22px;
+}
+
+.review__rating-text {
+  font-size: 15px;
+  line-height: 20px;
+  color: $emphasis-color;
+
+@extend .font-regular;
+}
+
+.review__time {
+  margin-right: 20px;
+
+  font-size: 14px;
+  line-height: 19px;
+  color: $text-color;
+
+  opacity: 0.4;
+
+@extend .font-regular;
+}
+
+.review__btn {
+  font-size: 16px;
+  line-height: 22px;
+  color: $emphasis-color;
+
+  background-color: transparent;
+  border: none;
+
+@extend .font-regular;
+}

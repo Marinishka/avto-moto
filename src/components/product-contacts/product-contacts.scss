@@ -1,0 +1,56 @@
+.contacts {
+  display: flex;
+  flex-direction: row;
+}
+
+.contacts__list {
+  margin-top: 15px;
+  margin-right: 103px;
+}
+
+.contacts__item {
+  margin-bottom: 27px;
+}
+
+.contacts__title {
+  margin-bottom: 10px;
+
+  color: $text-color-third;
+
+@extend .font-bold;
+
+@extend .font-main-text;
+}
+
+.contacts__text {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 19px;
+  color: $text-color-third;
+
+@extend .font-semi-bold;
+}
+
+.contacts__address {
+  font-style: normal;
+}
+
+.contacts__line {
+  display: block;
+}
+
+.contacts__link {
+  color: $text-color-third;
+  text-decoration: none;
+}
+
+.contacts__map {
+  width: 431px;
+  height: 271px;
+  margin-top: 20px;
+
+  background-image: url("./../../assets/img/map.jpg");
+  background-repeat: no-repeat;
+  background-size: 431px 271px;
+}

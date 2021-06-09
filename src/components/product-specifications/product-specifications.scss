@@ -1,0 +1,36 @@
+.specifications {
+  width: 565px;
+  padding-top: 1px;
+}
+
+.specifications__list {
+  margin: 0;
+}
+
+.specifications__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 50px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid $halfhidden-color;
+}
+
+.specifications__value {
+  margin: 0;
+
+  color: $text-color;
+  text-transform: capitalize;
+}
+
+.specifications__term {
+  color: $text-main-color;
+}
+
+.specifications__term,
+.specifications__value {
+  @extend .font-regular;
+
+@extend .font-main-text;
+}
