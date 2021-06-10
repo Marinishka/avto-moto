@@ -24,20 +24,20 @@ const ModalReview = () => {
 
   const dispatch = useDispatch();
 
-  const modalClose = () => {
+  const closeModal = () => {
     dispatch(changeVisibilityModal(false));
     document.body.classList.remove(`overflow--hidden`);
   };
 
   const onEscPress = (evt) => {
     if (evt.keyCode === KeyCode.ESCAPE) {
-      modalClose();
+      closeModal();
     }
   };
 
   const onOverlayClick = (evt) => {
     if (evt.target.classList.contains(`add-review`)) {
-      modalClose();
+      closeModal();
     }
   };
 
@@ -55,7 +55,7 @@ const ModalReview = () => {
   };
 
   const onCloseClick = () => {
-    modalClose();
+    closeModal();
   };
 
   const onSubmit = (evt) => {
@@ -76,7 +76,7 @@ const ModalReview = () => {
       return;
     }
     dispatch(addReview({"user": name, "dignity": dignity, "disadvantages": disadvantages, "comment": comment, "rating": starOn}));
-    modalClose();
+    closeModal();
   };
 
   return <section className="add-review" onClick={onOverlayClick}>
