@@ -51,8 +51,10 @@
 
 .slider__img-list {
   display: flex;
+  width: 434px;
   margin: 0;
   padding: 0;
+  overflow: scroll;
 
   list-style: none;
 }

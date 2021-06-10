@@ -20,11 +20,15 @@
 .specifications__value {
   margin: 0;
 
+  text-align: right;
   color: $text-color;
   text-transform: capitalize;
 }
 
 .specifications__term {
+  margin-right: 15px;
+;
+
   color: $text-main-color;
 }
 
