@@ -1,0 +1,148 @@
+.product {
+  padding-top: 90px;
+  padding-bottom: 140px;
+
+@extend .container;
+}
+
+.product__upper-block {
+  display: flex;
+  margin-bottom: 90px;
+}
+
+.info__title {
+  margin-top: -16px;
+  margin-bottom: 21px;
+  margin-left: 3px;
+
+  font-size: 30px;
+  line-height: 41px;
+
+@extend .font-bold;
+}
+
+.info__list {
+  display: flex;
+  margin: 0 0 37px 0;
+  padding: 0 0 0 4px;
+
+  list-style: none;
+}
+
+.info__item {
+  position: relative;
+
+  min-width: 70px;
+  padding-top: 40px;
+
+  text-align: center;
+  color: $text-main-color;
+
+  background-repeat: no-repeat;
+  background-position: top center;
+  opacity: 0.5;
+
+@extend .font-regular;
+
+@extend .font-main-text;
+}
+
+.info__item:not(:last-child) {
+  margin-right: 7px;
+}
+
+.info__item--engines_type {
+  background-image: url("./../../assets/img/icons/icon-engines-type.svg");
+}
+
+.info__item--transmission {
+  background-image: url("./../../assets/img/icons/icon-transmission.svg");
+}
+
+.info__item--power {
+  background-image: url("./../../assets/img/icons/icon-power.svg");
+}
+
+.info__item--volume {
+  background-image: url("./../../assets/img/icons/icon-volume.svg");
+}
+
+.info__pricing {
+  margin-bottom: 37px;
+  padding-left: 4px;
+}
+
+.info__price {
+  display: inline-block;
+
+  vertical-align: middle;
+}
+
+.info__price--new {
+  margin-right: 35px;
+
+  font-size: 35px;
+  line-height: 48px;
+  color: $text-main-color;
+
+@extend .font-bold;
+}
+
+.info__price--old {
+  position: relative;
+
+  font-size: 20px;
+  line-height: 27px;
+  color: $text-main-color;
+
+  opacity: 0.5;
+
+@extend .font-regular;
+}
+
+.info__price--old::before {
+  content: "";
+  position: absolute;
+  top: 45%;
+  left: -3px;
+
+  display: block;
+  width: 110%;
+  height: 1px;
+
+  background-color: $text-main-color;
+  transform: rotate(-5deg);
+  opacity: 0.5;
+}
+
+.info__btn {
+  display: block;
+  padding: 15px 19px;
+
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+
+  border: 1px solid $emphasis-color;
+
+@extend .btn;
+
+@extend .font-semi-bold;
+}
+
+.info__btn:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.info__btn--request {
+  color: $text-color-contrast;
+
+  background-color: $emphasis-color;
+}
+
+.info__btn--credit {
+  color: $emphasis-color;
+
+  background-color: $text-color-contrast;
+}

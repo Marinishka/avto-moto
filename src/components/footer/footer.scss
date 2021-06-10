@@ -1,0 +1,38 @@
+.footer {
+  background-color: $bg-block;
+}
+
+.footer__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 25px;
+
+  list-style: none;
+
+@extend .container;
+}
+
+.footer__link {
+  display: inline-block;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  color: $text-main-color;
+  text-decoration: none;
+
+@extend .font-main-text;
+
+@extend .font-semi-bold;
+}
+
+.footer__link:hover,
+.footer__link:focus {
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.footer__link:active {
+  text-shadow: 0 6px 4px rgba(0, 0, 0, 0.25);
+}

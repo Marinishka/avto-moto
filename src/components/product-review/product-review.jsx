@@ -1,17 +1,13 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
+import ReviewItem from '../review-item/review-item';
 
 const getStars = (rating) => {
-  let stars = [];
-  for (let i = 1; i <= 5; i++) {
-    stars.push(<div className="review__icon" key={`star-${i}`}>
-      <svg className={`review__icon-star ${i <= rating ? `review__icon-star--active` : ``}`} width="17" height="16" viewBox="0 0 17 16">
-        <path d="M8.63145 0L10.5103 5.87336L16.5906 5.87336L11.6716 9.50329L13.5505 15.3766L8.63145 11.7467L3.71242 15.3766L5.59132 9.50329L0.672291 5.87336L6.75254 5.87336L8.63145 0Z" fill="#BDBEC2"/>
-      </svg>
-    </div>);
-  }
-  return stars;
+  return Array(5).fill(0).map((_, i) => <div className="review__icon" key={`star-${i + 1}`}>
+    <svg className={`review__icon-star ${(i + 1) <= rating ? `review__icon-star--active` : ``}`} width="17" height="16" viewBox="0 0 17 16">
+      <path d="M8.63145 0L10.5103 5.87336L16.5906 5.87336L11.6716 9.50329L13.5505 15.3766L8.63145 11.7467L3.71242 15.3766L5.59132 9.50329L0.672291 5.87336L6.75254 5.87336L8.63145 0Z" fill="#BDBEC2"/>
+    </svg>
+  </div>);
 };
 
 const ProductReview = ({review}) => {
@@ -21,22 +17,13 @@ const ProductReview = ({review}) => {
     <span className="review__user-name">{user}</span>
     <dl className="review__content">
       {dignity
-        ? <div className="review__item">
-          <dt className="review__title review__title--dignity">Достоинства</dt>
-          <dd className="review__text">{dignity}</dd>
-        </div>
+        ? <ReviewItem reviewItemTitle={`dignity`} reviewItemContent={dignity}/>
         : ``}
       {disadvantages
-        ? <div className="review__item">
-          <dt className="review__title review__title--disadvantages">Недостатки</dt>
-          <dd className="review__text">{disadvantages}</dd>
-        </div>
+        ? <ReviewItem reviewItemTitle={`disadvantages`} reviewItemContent={disadvantages}/>
         : ``}
       {comment
-        ? <>
-          <dt className="review__title review__title--comment">Комментарий</dt>
-          <dd className="review__text">{comment}</dd>
-        </>
+        ? <ReviewItem reviewItemTitle={`comment`} reviewItemContent={comment}/>
         : ``}
     </dl>
     <div className="review__rating">

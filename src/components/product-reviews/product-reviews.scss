@@ -1,0 +1,31 @@
+.reviews {
+  position: relative;
+
+  padding-top: 20px;
+
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.reviews__btn {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  z-index: 1;
+
+  padding: 16px 18px;
+
+  font-size: 14px;
+  line-height: 19px;
+  color: $emphasis-color;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.12em;
+
+  background-color: transparent;
+  border: 1px solid $emphasis-color;
+
+@extend .btn;
+
+@extend .font-semi-bold;
+}
