@@ -76,6 +76,13 @@
   transform: rotate(-45deg);
 }
 
+.add-review__close:hover::before,
+.add-review__close:hover::after,
+.add-review__close:focus::before,
+.add-review__close:focus::after {
+  background-color: $text-main-color;
+}
+
 .add-review__form {
   display: flex;
   flex-wrap: wrap;

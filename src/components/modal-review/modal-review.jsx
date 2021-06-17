@@ -4,7 +4,7 @@ import {KeyCode} from '../../const';
 import {addReview, changeVisibilityModal} from '../../store/action';
 
 const getStars = (numStarOn) => {
-  return Array(5).fill(0).map((_, i) => <label tabIndex="0" className="add-review__star" key={`star-${i + 1}`}>
+  return Array(5).fill(0).map((_, i) => <label data-rating={i + 1} tabIndex="0" className="add-review__star" key={`star-${i + 1}`}>
     <input className="visually-hidden add-review__radio" type="radio" defaultChecked={numStarOn === i + 1 ? true : false} value={i + 1}></input>
     <svg className={`add-review__icon-star ${i + 1 <= numStarOn ? `add-review__icon-star--on` : ``}`} width="27" height="25" viewBox="0 0 27 25">
       <path d="M13.5688 0L16.6151 9.52282H26.4734L18.4979 15.4082L21.5443 24.9311L13.5688 19.0456L5.59324 24.9311L8.63961 15.4082L0.664102 9.52282H10.5224L13.5688 0Z" fill="#BDBEC2" fillOpacity="0.7"/>
@@ -54,6 +54,12 @@ const ModalReview = () => {
     setStarOn(evt.target.value);
   };
 
+  const onClick = (evt) => {
+    if (evt.keyCode === KeyCode.ENTER) {
+      setStarOn(evt.target.dataset.rating);
+    }
+  };
+
   const onCloseClick = () => {
     closeModal();
   };
@@ -99,7 +105,7 @@ const ModalReview = () => {
           </label>
         </div>
         <div className="add-review__column">
-          <fieldset className="add-review__rating" onChange={onRatingClick}>
+          <fieldset className="add-review__rating" onChange={onRatingClick} onKeyDown={onClick}>
             <label className="add-review__rating-text">Оцените товар:</label>
             <div className="add-review__stars">
               {getStars(starOn)}

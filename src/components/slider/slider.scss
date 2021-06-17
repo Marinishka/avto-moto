@@ -39,6 +39,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .slider__item {
   font-size: 0;
 
@@ -54,7 +55,7 @@
   width: 434px;
   margin: 0;
   padding: 0;
-  overflow: scroll;
+  overflow: hidden;
 
   list-style: none;
 }
@@ -71,6 +72,16 @@
 
 .slider__icon {
   stroke: $text-main-color;
+}
+
+.slider__btn:hover:not(.slider__btn--disable),
+.slider__btn:focus:not(.slider__btn--disable) {
+  border-color: darken($color: $halfhidden-color, $amount: 20%);
+}
+
+.slider__btn:hover path:not(.slider__icon--disable path),
+.slider__btn:focus path:not(.slider__icon--disable path) {
+  stroke: darken($color: $text-main-color, $amount: 20%);
 }
 
 .slider__icon--disable path {

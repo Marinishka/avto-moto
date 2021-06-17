@@ -15,6 +15,10 @@
 @extend .container;
 }
 
+.footer__item:not(:last-child) {
+  margin-right: 30px;
+}
+
 .footer__link {
   display: inline-block;
   padding-top: 30px;
