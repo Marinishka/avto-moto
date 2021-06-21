@@ -96,6 +96,10 @@
   width: 300px;
 }
 
+.add-review__column--left {
+  padding-top: 22px;
+}
+
 .add-review__group {
   display: flex;
   flex-direction: column;
@@ -153,6 +157,8 @@
 }
 
 .add-review__input {
+  position: relative;
+
   width: 300px;
   height: 50px;
   padding: 15px 25px;
@@ -167,6 +173,8 @@
 
 .add-review__label {
   position: relative;
+
+  font-size: 0;
 }
 
 .add-review__label:not(:last-of-type) {
@@ -188,7 +196,25 @@
   color: $emphasis-color-double;
 }
 
+.add-review__label--warning::after {
+  content: "Пожалуйста, заполните поле";
+  position: absolute;
+  top: -23px;
+  left: 0;
+
+  display: block;
+
+  font-size: 14px;
+  line-height: 19px;
+  color: $emphasis-color-double;
+
+@extend .font-regular;
+}
+
 .add-review__warning {
+  content: "Пожалуйста, заполните поле";
+  position: absolute;
+
   display: block;
   margin-bottom: 3px;
 

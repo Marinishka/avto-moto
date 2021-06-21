@@ -16,6 +16,8 @@ const ModalReview = () => {
   const [starOn, setStarOn] = useState(0);
   const inputName = useRef(null);
   const inputComment = useRef(null);
+  const warningName = useRef(null);
+  const warningComment = useRef(null);
 
   const [name, setName] = useState(``);
   const [dignity, setDignity] = useState(``);
@@ -68,17 +70,23 @@ const ModalReview = () => {
     evt.preventDefault();
     inputName.current.classList.remove(`add-review__input--warning`);
     inputComment.current.classList.remove(`add-review__textarea--warning`);
+    warningName.current.classList.remove(`add-review__label--warning`);
+    warningComment.current.classList.remove(`add-review__label--warning`);
     if (name === `` && comment === ``) {
       inputName.current.classList.add(`add-review__input--warning`);
       inputComment.current.classList.add(`add-review__textarea--warning`);
+      warningName.current.classList.add(`add-review__label--warning`);
+      warningComment.current.classList.add(`add-review__label--warning`);
       return;
     }
     if (name === ``) {
       inputName.current.classList.add(`add-review__input--warning`);
+      warningName.current.classList.add(`add-review__label--warning`);
       return;
     }
     if (comment === ``) {
       inputComment.current.classList.add(`add-review__textarea--warning`);
+      warningComment.current.classList.add(`add-review__label--warning`);
       return;
     }
     dispatch(addReview({"user": name, "dignity": dignity, "disadvantages": disadvantages, "comment": comment, "rating": starOn}));
@@ -92,9 +100,8 @@ const ModalReview = () => {
         <span className="visually-hidden">Закрыть окно</span>
       </button>
       <form className="add-review__form" onSubmit={onSubmit} noValidate>
-        <div className="add-review__column">
-          <span className="add-review__warning">Пожалуйста, заполните поле</span>
-          <label className="add-review__label add-review__label--required"><span className="visually-hidden">Введите имя</span>
+        <div className="add-review__column add-review__column--left">
+          <label ref={warningName} className="add-review__label add-review__label--required"><span className="visually-hidden">Введите имя</span>
             <input className="add-review__input" placeholder="Имя" name="name" type="text" ref={inputName} aria-label="Имя" onChange={({target}) => setName(target.value)} required></input>
           </label>
           <label className="add-review__label"><span className="visually-hidden">Введите достоинства товара</span>
@@ -111,7 +118,7 @@ const ModalReview = () => {
               {getStars(starOn)}
             </div>
           </fieldset>
-          <label className="add-review__label add-review__label--required"><span className="visually-hidden">Ваш комментарий</span>
+          <label ref={warningComment} className="add-review__label add-review__label--required"><span className="visually-hidden">Ваш комментарий</span>
             <textarea className="add-review__textarea" placeholder="Комментарий" name="comment" type="text" aria-label="Комментарий" onChange={({target}) => setComment(target.value)} ref={inputComment} required></textarea>
           </label>
         </div>
