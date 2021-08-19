@@ -1,3 +1,17 @@
+
+Учебный проект в рамках обучения профессии React-разработчика от HTMLAcademy.
+
+ТЗ https://www.notion.so/Avto-Moto-868de930501b4f2398af6849ecefbaa4
+
+Проект создан на основе create-react-app с использованием:
+
+1. методологии БЭМ,
+2. Sass,
+3. React,
+4. React Redux,
+5. React Router,
+6. flex.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
